@@ -1,31 +1,31 @@
-"use client"
+"use client";
 
-import { useLanguage } from "@/components/language-provider"
-import { Button } from "@/components/ui/button"
-import { Check } from "lucide-react"
-import { motion } from "framer-motion"
-import { useRouter } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useLanguage } from "@/components/language-provider";
+import { Button } from "@/components/ui/button";
+import { Check } from 'lucide-react';
+import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Pricing() {
-  const { t, language } = useLanguage()
-  const router = useRouter()
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const { t, language } = useLanguage();
+  const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     // Check if user is logged in
-    const user = localStorage.getItem("user")
-    setIsLoggedIn(!!user)
-  }, [])
+    const user = localStorage.getItem("user");
+    setIsLoggedIn(!!user);
+  }, []);
 
   const handlePurchase = () => {
     if (!isLoggedIn) {
-      router.push("/login?redirect=pricing")
+      router.push("/login?redirect=pricing");
     } else {
       // Handle purchase logic
-      console.log("Processing purchase...")
+      console.log("Processing purchase...");
     }
-  }
+  };
 
   // Définir les plans avec des valeurs directes plutôt que des clés de traduction
   const plans = [
@@ -40,51 +40,78 @@ export default function Pricing() {
       ],
       buttonText: language === "fr" ? "Commencer gratuitement" : "Start for Free",
       popular: false,
+      color: "",
     },
     {
-      name: language === "fr" ? "Jour" : "Day",
+      name: language === "fr" ? "Basique" : "Basic",
       price: "600 FCFA",
       description: language === "fr" ? "Accès complet pendant 24h" : "Full access for 24 hours",
       features: [
-        language === "fr" ? "CV illimités" : "Unlimited CVs",
-        language === "fr"
-          ? "Tous les modèles basiques + (01) Modèle premium"
-          : "All basic templates + (01) Premium template",
+        language === "fr" ? "CV illimités (pendant 24h)" : "Unlimited CVs (for 24h)",
+        language === "fr" ? "Tous les modèles basiques + (01) Modèle premium" : "All basic templates + (01) Premium template",
         language === "fr" ? "Exportation en PDF et DOCX" : "PDF and DOCX export",
       ],
       buttonText: language === "fr" ? "Acheter (1 jour)" : "Buy (1 day)",
       popular: false,
+      color: "",
     },
     {
-      name: language === "fr" ? "3 Jours" : "3 Days",
+      name: language === "fr" ? "Premium" : "Premium",
       price: "1 399 FCFA",
-      description: language === "fr" ? "Accès complet pendant 3 jours" : "Full access for 3 days",
+      description: language === "fr" ? "Accès complet pendant 24h" : "Full access for 24 hours",
       features: [
-        language === "fr" ? "CV illimités" : "Unlimited CVs",
-        language === "fr" ? "Lettres de motivation" : "Cover letters",
+        language === "fr" ? "CV illimités (pendant 24h)" : "Unlimited CVs (for 24h)",
+        language === "fr" ? "Lettre de motivation gratuite (01)" : "Free cover letter (01)",
         language === "fr" ? "Tous les modèles premium" : "All premium templates",
         language === "fr" ? "Exportation en PDF et DOCX" : "PDF and DOCX export",
+        language === "fr" ? "Accès basique à Tosca AI" : "Basic access to Tosca AI",
+        language === "fr" ? "Création plus automatique" : "Enhanced automatic creation",
         language === "fr" ? "Support prioritaire" : "Priority support",
       ],
-      buttonText: language === "fr" ? "Acheter (3 jours)" : "Buy (3 days)",
+      buttonText: language === "fr" ? "Acheter (1 jour)" : "Buy (1 day)",
       popular: true,
+      color: "bg-teal-600 hover:bg-teal-700",
     },
     {
-      name: language === "fr" ? "Semaine" : "Week",
+      name: language === "fr" ? "Gold" : "Gold",
       price: "3 499 FCFA",
-      description: language === "fr" ? "Accès complet pendant 7 jours" : "Full access for 7 days",
+      description: language === "fr" ? "Accès complet pendant 24h" : "Full access for 24 hours",
       features: [
-        language === "fr" ? "CV illimités" : "Unlimited CVs",
-        language === "fr" ? "Lettres de motivation" : "Cover letters",
-        language === "fr" ? "Tous les modèles premium" : "All premium templates",
-        language === "fr" ? "Exportation en PDF et DOCX" : "PDF and DOCX export",
-        language === "fr" ? "Support prioritaire" : "Priority support",
-        language === "fr" ? "Conseils personnalisés" : "Personalized advice",
+        language === "fr" ? "Toutes les fonctionnalités du plan Premium" : "All features from the Premium plan",
+        language === "fr" ? "Création avancée via lien, document ou image contenant vos informations" : "Advanced creation from links, documents or images containing your information",
+        language === "fr" ? "Lettre de motivation (tous les modèles)" : "Cover letter (all templates)",
+        language === "fr" ? "Accès complet à Tosca AI" : "Full access to Tosca AI",
+        language === "fr" ? "Lien de partage sécurisé pour collaborer sur vos CV" : "Secure sharing links to collaborate on your CVs",
+        language === "fr" ? "Exportation avancée (PDF, DOCX, SVG)" : "Advanced export formats (PDF, DOCX, SVG)",
+        language === "fr" ? "Portfolio CV en ligne (HTML + CSS)" : "Online CV portfolio (HTML + CSS)",
+        language === "fr" ? "Support prioritaire 24/7" : "24/7 priority support",
+        language === "fr" ? "Conseils personnalisés d'experts" : "Personalized expert advice",
       ],
-      buttonText: language === "fr" ? "Acheter (7 jours)" : "Buy (7 days)",
+      buttonText: language === "fr" ? "Acheter (1 jour)" : "Buy (1 day)",
       popular: false,
+      color: "bg-amber-600 hover:bg-amber-700",
     },
-  ]
+    {
+      name: language === "fr" ? "Gold PRO MAX" : "Gold PRO MAX",
+      price: "19 499 FCFA",
+      description: language === "fr" ? "Accès complet pendant 1 an" : "Full access for 1 year",
+      features: [
+        language === "fr" ? "Toutes les fonctionnalités du plan Gold" : "All features from the Gold plan",
+        language === "fr" ? "Création avancée via lien, document ou image contenant vos informations" : "Advanced creation from links, documents or images containing your information",
+        language === "fr" ? "Lettre de motivation (tous les modèles)" : "Cover letter (all templates)",
+        language === "fr" ? "Accès complet à Tosca AI" : "Full access to Tosca AI",
+        language === "fr" ? "Lien de partage sécurisé pour collaborer sur vos CV" : "Secure sharing links to collaborate on your CVs",
+        language === "fr" ? "Exportation avancée (PDF, DOCX, SVG)" : "Advanced export formats (PDF, DOCX, SVG)",
+        language === "fr" ? "Portfolio CV en ligne (HTML + CSS)" : "Online CV portfolio (HTML + CSS)",
+        language === "fr" ? "Support prioritaire 24/7" : "24/7 priority support",
+        language === "fr" ? "Conseils personnalisés d'experts" : "Personalized expert advice",
+        language === "fr" ? "Mises à jour gratuites pendant 1 an" : "Free updates for 1 year",
+      ],
+      buttonText: language === "fr" ? "Acheter (1 an)" : "Buy (1 year)",
+      popular: false,
+      color: "bg-gradient-to-r from-yellow-500 to-amber-700 hover:from-yellow-600 hover:to-amber-800",
+    },
+  ];
 
   return (
     <div className="container mx-auto px-4 py-16 md:py-24">
@@ -93,13 +120,11 @@ export default function Pricing() {
           {language === "fr" ? "Tarifs simples et transparents" : "Simple and Transparent Pricing"}
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          {language === "fr"
-            ? "Choisissez le plan qui correspond à vos besoins"
-            : "Choose the plan that fits your needs"}
+          {language === "fr" ? "Choisissez le plan qui correspond à vos besoins" : "Choose the plan that fits your needs"}
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
         {plans.map((plan, index) => (
           <motion.div
             key={index}
@@ -107,7 +132,9 @@ export default function Pricing() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className={`relative rounded-xl overflow-hidden ${
-              plan.popular ? "md:scale-105 md:-translate-y-2 z-10" : ""
+              plan.popular
+                ? "md:scale-105 md:-translate-y-2 z-10"
+                : ""
             }`}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-teal-700/10 backdrop-blur-sm border border-white/10 rounded-xl"></div>
@@ -116,30 +143,31 @@ export default function Pricing() {
                 {language === "fr" ? "Populaire" : "Popular"}
               </div>
             )}
+            {index === 4 && (
+              <div className="absolute top-0 right-0 bg-gradient-to-r from-yellow-500 to-amber-700 text-white text-xs font-semibold px-3 py-1 rounded-bl-lg">
+                {language === "fr" ? "Meilleure valeur" : "Best Value"}
+              </div>
+            )}
             <div className="relative z-10 p-6">
               <h3 className="text-xl font-semibold mb-2">{plan.name}</h3>
               <div className="mb-4">
-                <span className="text-2xl md:text-3xl font-bold">{plan.price}</span>
+                <span className="text-2xl md:text-3xl font-bold">
+                  {plan.price}
+                </span>
                 {plan.price !== "0 FCFA" && (
                   <span className="text-muted-foreground ml-1 text-sm">
-                    {index === 1
-                      ? language === "fr"
-                        ? "/ jour"
-                        : "/ day"
-                      : index === 2
-                        ? language === "fr"
-                          ? "/ 3 jours"
-                          : "/ 3 days"
-                        : language === "fr"
-                          ? "/ semaine"
-                          : "/ week"}
+                    {index === 4 
+                      ? (language === "fr" ? "/ an" : "/ year") 
+                      : (language === "fr" ? "/ jour" : "/ day")}
                   </span>
                 )}
               </div>
               <p className="text-muted-foreground mb-6 text-sm">{plan.description}</p>
               <Button
                 className={`w-full mb-6 ${
-                  plan.popular ? "bg-teal-600 hover:bg-teal-700" : "bg-muted hover:bg-muted/80"
+                  plan.popular
+                    ? "bg-teal-600 hover:bg-teal-700"
+                    : plan.color || "bg-muted hover:bg-muted/80"
                 }`}
                 onClick={handlePurchase}
               >
@@ -148,7 +176,7 @@ export default function Pricing() {
               <ul className="space-y-3 text-sm">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-start">
-                    <Check className="h-4 w-4 text-teal-500 mr-2 shrink-0 mt-0.5" />
+                    <Check className={`h-4 w-4 ${index === 4 ? "text-yellow-500" : "text-teal-500"} mr-2 shrink-0 mt-0.5`} />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -160,8 +188,8 @@ export default function Pricing() {
 
       <div className="mt-16 text-center">
         <p className="text-muted-foreground mb-4">
-          {language === "fr"
-            ? "Besoin d'une solution sur mesure pour votre entreprise ?"
+          {language === "fr" 
+            ? "Besoin d'une solution sur mesure pour votre entreprise ?" 
             : "Need a custom solution for your enterprise?"}
         </p>
         <Button variant="outline" size="lg">
@@ -169,6 +197,5 @@ export default function Pricing() {
         </Button>
       </div>
     </div>
-  )
+  );
 }
-

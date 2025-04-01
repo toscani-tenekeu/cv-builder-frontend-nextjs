@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, FileDown, Star } from "lucide-react"
+import { ArrowRight, FileDown, Star } from 'lucide-react'
 
 export default function Home() {
   const { t } = useLanguage()
@@ -22,7 +22,7 @@ export default function Home() {
             <p className="text-lg md:text-xl mb-8 text-muted-foreground">{t("hero.subtitle")}</p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" className="bg-teal-600 hover:bg-teal-700">
-                {t("hero.getStarted")} <ArrowRight className="ml-2 h-4 w-4" />
+                {t("hero.createOnSite")} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <Link href="/download">
                 <Button size="lg" variant="outline">
@@ -131,7 +131,7 @@ export default function Home() {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">{t("cta.subtitle")}</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button size="lg" className="bg-teal-600 hover:bg-teal-700">
-                {t("cta.getStarted")}
+                {t("cta.createOnSite")}
               </Button>
               <Link href="/pricing">
                 <Button size="lg" variant="outline">
@@ -145,4 +145,3 @@ export default function Home() {
     </div>
   )
 }
-
