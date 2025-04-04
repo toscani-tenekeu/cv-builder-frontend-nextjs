@@ -31,7 +31,7 @@ export default function Pricing() {
   const plans = [
     {
       name: language === "fr" ? "Gratuit" : "Free",
-      price: "0 FCFA",
+      price: "499 FCFA",
       description: language === "fr" ? "Pour essayer l'application" : "To try the application",
       features: [
         language === "fr" ? "1 CV uniquement" : "1 CV only",
@@ -44,7 +44,7 @@ export default function Pricing() {
     },
     {
       name: language === "fr" ? "Basique" : "Basic",
-      price: "600 FCFA",
+      price: "799 FCFA",
       description: language === "fr" ? "Accès complet pendant 24h" : "Full access for 24 hours",
       features: [
         language === "fr" ? "CV illimités (pendant 24h)" : "Unlimited CVs (for 24h)",

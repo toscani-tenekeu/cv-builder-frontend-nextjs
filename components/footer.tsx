@@ -44,7 +44,7 @@ export default function Footer() {
                 <Phone className="h-5 w-5 mr-2 shrink-0 mt-0.5" />
                 <div className="flex flex-col">
                   <span>+237 694 19 34 93</span>
-                  <span>+237 674 69 05 95</span>
+                  <span>+237 650 50 00 00</span>
                 </div>
               </div>
               <div className="flex items-start">
