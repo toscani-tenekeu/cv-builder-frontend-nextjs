@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "CV Builder - Créez votre CV professionnel",
   description: "Créez facilement un CV professionnel avec CV Builder",
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -38,6 +38,10 @@ export default function RootLayout({
     </html>
   )
 }
+
+import "./globals.css"
+
+import "./globals.css"
 
 
 

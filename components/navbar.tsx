@@ -118,9 +118,9 @@ export default function Navbar() {
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
-                    <DropdownMenuItem>{t("user.profile")}</DropdownMenuItem>
-                    <DropdownMenuItem>{t("user.cvs")}</DropdownMenuItem>
-                    <DropdownMenuItem>{t("user.settings")}</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => router.push("/profile")}>{t("user.profile")}</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => router.push("/my-cvs")}>{t("user.cvs")}</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => router.push("/settings")}>{t("user.settings")}</DropdownMenuItem>
                     <DropdownMenuItem onClick={handleLogout} className="text-red-500">
                       <LogOut className="mr-2 h-4 w-4" />
                       <span>{t("user.logout")}</span>
@@ -175,11 +175,23 @@ export default function Navbar() {
                             <p className="text-sm text-muted-foreground">{user?.email}</p>
                           </div>
                         </div>
-                        <Link href="/profile">
-                          <Button variant="outline" className="w-full">
-                            {t("user.profile")}
-                          </Button>
-                        </Link>
+                        <div className="space-y-2">
+                          <Link href="/profile">
+                            <Button variant="outline" className="w-full">
+                              {t("user.profile")}
+                            </Button>
+                          </Link>
+                          <Link href="/my-cvs">
+                            <Button variant="outline" className="w-full">
+                              {t("user.cvs")}
+                            </Button>
+                          </Link>
+                          <Link href="/settings">
+                            <Button variant="outline" className="w-full">
+                              {t("user.settings")}
+                            </Button>
+                          </Link>
+                        </div>
                         <Button className="w-full text-red-500" variant="outline" onClick={handleLogout}>
                           <LogOut className="mr-2 h-4 w-4" />
                           <span>{t("user.logout")}</span>
